@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 23:30:10 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/08 00:10:04 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/08 00:22:18 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_lst	*ft_new_node(int i)
 
 	node = malloc(sizeof(t_lst));
 	if (!node)
-		return NULL;
+		return (NULL);
 	node->nbr = i;
 	node->next = NULL;
 	return (node);
