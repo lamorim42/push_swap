@@ -6,7 +6,7 @@
 #    By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/07 21:58:08 by lamorim           #+#    #+#              #
-#    Updated: 2022/03/07 23:13:55 by lamorim          ###   ########.fr        #
+#    Updated: 2022/03/07 23:29:05 by lamorim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ INC_LIBFT= ./library/ft_printf/libft/include/
 RM		= rm -f
 
 #Paths
-VPATH	= ./src/
+VPATH	= ./src/ ./rules ./list
 
 #Default goal
 .DEFAULT_GOAL= all
