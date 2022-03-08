@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:41:31 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/06 14:03:44 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/07 23:34:43 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_node	*ft_new_node(char c)
 	t_node	*node;
 
 	node = malloc(sizeof(t_node));
+	if (!node)
+		return NULL;
 	node->c = c;
 	node->next = NULL;
 	return (node);
