@@ -6,13 +6,13 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 23:30:10 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/08 00:22:18 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/08 16:58:24 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_lst	*ft_new_node(int i)
+t_lst	*ft_new_elem(int i)
 {
 	t_lst	*node;
 
@@ -28,28 +28,29 @@ void	ft_push_front(t_lst **head, int i)
 {
 	t_lst	*new;
 
-	new = ft_new_node(i);
+	new = ft_new_elem(i);
 	new->next = *head;
 	*head = new;
 }
 
-void	ft_push_back(t_lst **head, t_lst *new)
+void	ft_push_back(t_lst **last, int i)
 {
-	t_lst	*temp;
+	t_lst	*new;
 
-	temp = *head;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = new;
+	new = ft_new_elem(i);
+	(*last)->next = new;
+	*last = new;
 }
 
-void	ft_clean_list(t_lst **head)
+void	ft_clean_lst(t_lst **head)
 {
 	t_lst	*list;
 	t_lst	*temp;
 
+	if (!head)
+		return ;
 	list = *head;
-	while (list->next)
+	while (list->next != NULL)
 	{
 		temp = list->next;
 		list->next = temp->next;
