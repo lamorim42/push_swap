@@ -6,7 +6,7 @@
 #    By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/07 21:58:08 by lamorim           #+#    #+#              #
-#    Updated: 2022/03/07 23:29:05 by lamorim          ###   ########.fr        #
+#    Updated: 2022/03/08 20:28:28 by lamorim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ CFLAGS	= -Wall -Wextra -Werror -g
 
 INCLUDE	= ./include/
 
-SRC		= push_swap.c \
+SRC		=	list.c \
+			swap.c \
+			push_swap.c \
 
 OBJ_FILES= $(SRC:.c=.o)
 OBJ		= $(addprefix ./obj/, $(OBJ_FILES))
@@ -59,6 +61,12 @@ fclean: clean
 	$(MAKE) fclean -C $(LIB)
 
 re: fclean all
+
+run:
+	./push_swap 1 2 3 4 5 6 7
+
+runv:
+	valgrind -s ./push_swap 1 2 3 4 5 6 7
 
 git: fclean
 	git status
