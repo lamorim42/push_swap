@@ -6,7 +6,7 @@
 #    By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/07 21:58:08 by lamorim           #+#    #+#              #
-#    Updated: 2022/03/08 20:28:28 by lamorim          ###   ########.fr        #
+#    Updated: 2022/03/09 20:49:37 by lamorim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ INCLUDE	= ./include/
 
 SRC		=	list.c \
 			swap.c \
+			push.c \
+			rotate.c \
 			push_swap.c \
 
 OBJ_FILES= $(SRC:.c=.o)
@@ -66,7 +68,7 @@ run:
 	./push_swap 1 2 3 4 5 6 7
 
 runv:
-	valgrind -s ./push_swap 1 2 3 4 5 6 7
+	valgrind -s --leak-check=full ./push_swap 1 2 3 4 5 6 7
 
 git: fclean
 	git status
