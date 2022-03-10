@@ -6,7 +6,7 @@
 #    By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/07 21:58:08 by lamorim           #+#    #+#              #
-#    Updated: 2022/03/09 23:56:34 by lamorim          ###   ########.fr        #
+#    Updated: 2022/03/10 17:21:43 by lamorim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC_L	= list.c
 SRC_R	=	swap.c \
 			push.c \
 			rotate.c \
+			reverse_rotate.c \
 
 SRC		=	$(SRC_L) \
 			$(SRC_R) \
