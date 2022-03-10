@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 23:30:10 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/08 16:58:24 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/09 20:48:52 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,18 @@ void	ft_push_back(t_lst **last, int i)
 	*last = new;
 }
 
+void	ft_delone(t_lst **head)
+{
+	t_lst	*temp;
+
+	if (!*head)
+		return ;
+	temp = (*head)->next;
+	(*head)->next = NULL;
+	free(*head);
+	*head = temp;
+}
+
 void	ft_clean_lst(t_lst **head)
 {
 	t_lst	*list;
@@ -60,3 +72,11 @@ void	ft_clean_lst(t_lst **head)
 	free(list);
 	list = NULL;
 }
+
+//void	ft_traking_stk(t_stack *stk)
+//{
+//	if (!stk->lst)
+//		return ;
+//	stk->head = stk->lst;
+//	stk->last =
+//}
