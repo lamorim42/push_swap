@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:34 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/06 14:06:48 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/11 10:55:16 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int	ft_count_digit(unsigned long int x, int base)
 	return (len);
 }
 
-void	ft_create_buffer(t_data *data)
+void	ft_create_buffer(t_printf *data)
 {
 	int		i;
-	t_node	*temp;
+	t_char	*temp;
 
 	data->buffer = malloc(sizeof(char) * data->result);
 	i = 0;
@@ -82,7 +82,7 @@ char	*ft_itoa_basef(unsigned long int n, int base, int upper)
 	return (itoa.ptr);
 }
 
-void	ft_itoa_address(t_data *data)
+void	ft_itoa_address(t_printf *data)
 {
 	unsigned long	ads_cpy;
 	const char		*prefix;

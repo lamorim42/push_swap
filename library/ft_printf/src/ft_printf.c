@@ -6,18 +6,18 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:41:25 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/06 14:05:40 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/11 10:56:09 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	check_parameter(t_data *data, const char **fmt);
-static void	ft_char_helper(t_data *data, const char **fmt);
+static void	check_parameter(t_printf *data, const char **fmt);
+static void	ft_char_helper(t_printf *data, const char **fmt);
 
 int	ft_printf(const char *fmt, ...)
 {
-	t_data	data;
+	t_printf	data;
 
 	data.result = 0;
 	va_start(data.ap, fmt);
@@ -41,7 +41,7 @@ int	ft_printf(const char *fmt, ...)
 	return (data.result);
 }
 
-static void	check_parameter(t_data *data, const char **fmt)
+static void	check_parameter(t_printf *data, const char **fmt)
 {
 	if (**fmt == 'c')
 		ft_putchar_inlst(data, va_arg(data->ap, int));
@@ -63,9 +63,9 @@ static void	check_parameter(t_data *data, const char **fmt)
 		ft_putchar_inlst(data, **fmt);
 }
 
-static void	ft_char_helper(t_data *data, const char **fmt)
+static void	ft_char_helper(t_printf *data, const char **fmt)
 {
-	t_node	*temp;
+	t_char	*temp;
 
 	if (data->result == 0)
 		data->string = ft_new_node(**fmt);

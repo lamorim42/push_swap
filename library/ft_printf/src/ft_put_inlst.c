@@ -6,15 +6,15 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:41:41 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/06 14:04:25 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/11 10:56:36 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_inlst(t_data *data, char c)
+void	ft_putchar_inlst(t_printf *data, char c)
 {
-	t_node	*temp;
+	t_char	*temp;
 
 	if (data->result == 0)
 		data->string = ft_new_node(c);
@@ -26,7 +26,7 @@ void	ft_putchar_inlst(t_data *data, char c)
 	data->result++;
 }
 
-void	ft_putstr_inlst(t_data *data, char *str)
+void	ft_putstr_inlst(t_printf *data, char *str)
 {
 	int			i;
 	const char	*temp;
@@ -49,7 +49,7 @@ void	ft_putstr_inlst(t_data *data, char *str)
 	}
 }
 
-void	ft_putint_inlst(t_data *data, int nbr)
+void	ft_putint_inlst(t_printf *data, int nbr)
 {
 	long int	n;
 	char		*ptr;
@@ -75,7 +75,7 @@ void	ft_putint_inlst(t_data *data, int nbr)
 	free(ptr);
 }
 
-void	ft_putuint_inlst(t_data *data, unsigned int nbr)
+void	ft_putuint_inlst(t_printf *data, unsigned int nbr)
 {
 	unsigned int	n;
 	char			*ptr;
@@ -94,7 +94,7 @@ void	ft_putuint_inlst(t_data *data, unsigned int nbr)
 	free(ptr);
 }
 
-void	ft_itoa_put_inlst(t_data *data, int flag)
+void	ft_itoa_put_inlst(t_printf *data, int flag)
 {
 	char	*result;
 

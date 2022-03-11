@@ -6,17 +6,17 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:41:31 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/08 00:21:58 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/11 10:54:00 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_node	*ft_new_node(char c)
+t_char	*ft_new_node(char c)
 {
-	t_node	*node;
+	t_char	*node;
 
-	node = malloc(sizeof(t_node));
+	node = malloc(sizeof(t_char));
 	if (!node)
 		return (NULL);
 	node->c = c;
@@ -24,9 +24,9 @@ t_node	*ft_new_node(char c)
 	return (node);
 }
 
-void	ft_add_node(t_node **node, t_node *new)
+void	ft_add_node(t_char **node, t_char *new)
 {
-	t_node	*temp;
+	t_char	*temp;
 
 	temp = *node;
 	while (temp->next)
@@ -34,10 +34,10 @@ void	ft_add_node(t_node **node, t_node *new)
 	temp->next = new;
 }
 
-void	ft_clean_list(t_node **node)
+void	ft_clean_list(t_char **node)
 {
-	t_node	*list;
-	t_node	*temp;
+	t_char	*list;
+	t_char	*temp;
 
 	list = *node;
 	while (list->next)
