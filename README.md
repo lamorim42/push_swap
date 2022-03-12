@@ -91,3 +91,9 @@ TODO
 # Source code
 
 TODO
+
+# TODO
+
+- [ ] validar argumentos do argv
+- [ ] validar números repetidos
+- [ ] validar se lista já está ordenada
