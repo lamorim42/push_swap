@@ -6,7 +6,7 @@
 #    By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/07 21:58:08 by lamorim           #+#    #+#              #
-#    Updated: 2022/03/10 17:21:43 by lamorim          ###   ########.fr        #
+#    Updated: 2022/03/12 15:58:47 by lamorim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,23 @@ CFLAGS	= -Wall -Wextra -Werror -g
 
 INCLUDE	= ./include/
 
-SRC_L	= list.c
+SRC_L	=	list.c \
+			list_utils.c \
 
 SRC_R	=	swap.c \
 			push.c \
 			rotate.c \
 			reverse_rotate.c \
 
+SRC_S	=	stack.c
+
 SRC		=	$(SRC_L) \
 			$(SRC_R) \
+			$(SRC_S) \
 			push_swap.c \
+			ft_long_atoi.c \
+			bubble_sort.c \
+			normalize.c \
 
 OBJ_FILES= $(SRC:.c=.o)
 OBJ		= $(addprefix ./obj/, $(OBJ_FILES))
@@ -42,7 +49,7 @@ INCLUDES= -I $(INCLUDE) -I $(INC_LIB) -I $(INC_LIBFT)
 RM		= rm -f
 
 #Paths
-VPATH	= ./src/ ./rules ./list
+VPATH	= ./src/ ./rules/ ./list/ ./stack/
 
 #Default goal
 .DEFAULT_GOAL= all
@@ -72,17 +79,17 @@ fclean: clean
 re: fclean all
 
 run:
-	./push_swap 1 2 3 4 5 6 7
+	./push_swap 7 6 3 4 5 2 1
 
 runv:
-	valgrind -s --leak-check=full ./push_swap 1 2 3 4 5 6 7
+	valgrind -s --leak-check=full ./push_swap 7 6 3 4 5 2 1
 
 git: fclean
 	git status
 	@echo $(SEP)
 	git add $(ADD)
 	@echo $(SEP)
-	git commit -m "$(MSG)"
+	git commit
 	@echo $(SEP)
 	git status
 
