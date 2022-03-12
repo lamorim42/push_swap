@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 23:30:10 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/10 16:23:40 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/12 12:26:45 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,44 +33,19 @@ void	ft_push_front(t_lst **head, int i)
 	*head = new;
 }
 
-//void	ft_push_back(t_lst **last, int i)
-//{
-//	t_lst	*new;
-//
-//	new = ft_new_elem(i);
-//	(*last)->next = new;
-//	*last = new;
-//}
-
-void	ft_delone(t_lst **head)
+void	ft_push_back(t_lst **head, int i)
 {
+	t_lst	*new;
 	t_lst	*temp;
 
+	new = ft_new_elem(i);
 	if (!*head)
-		return ;
-	temp = (*head)->next;
-	(*head)->next = NULL;
-	free(*head);
-	*head = temp;
-}
-
-void	ft_clean_lst(t_lst **head)
-{
-	t_lst	*list;
-	t_lst	*temp;
-
-	if (!head)
-		return ;
-	list = *head;
-	while (list->next != NULL)
+		*head = new;
+	else
 	{
-		temp = list->next;
-		list->next = temp->next;
-		free(temp);
-		temp = NULL;
+		temp = ft_last_lst(*head);
+		temp->next = new;
 	}
-	free(list);
-	list = NULL;
 }
 
 t_lst	*ft_last_lst(t_lst *head)
@@ -81,4 +56,11 @@ t_lst	*ft_last_lst(t_lst *head)
 	while (last->next)
 		last = last->next;
 	return (last);
+}
+
+int	ft_is_empty(t_lst *lst)
+{
+	if (!lst)
+		return (1);
+	return (0);
 }
