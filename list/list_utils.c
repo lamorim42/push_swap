@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:17:19 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/12 12:54:15 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/13 13:15:22 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ t_lst	*ft_cpy_lst(t_lst **head)
 	if (!*head)
 		return (NULL);
 	temp = *head;
-	cpy = ft_new_elem(temp->nbr);
+	cpy = ft_new_elem(temp->nbr, temp->norm);
 	temp = temp->next;
 	while (temp)
 	{
-		ft_push_back(&cpy, temp->nbr);
+		ft_push_back(&cpy, temp->nbr, temp->norm);
 		temp = temp->next;
 	}
 	return (cpy);
@@ -77,4 +77,26 @@ int	ft_is_sorted(t_lst **list)
 		temp = temp->next;
 	}
 	return (flag);
+}
+
+int	ft_can_put_in_lst(char *arg_v)
+{
+	const char	*nbr;
+	int			len;
+	int			i;
+
+	nbr = "-0123456789";
+	len = ft_strlen(arg_v);
+	if (!len)
+		return (1);
+	i = 0;
+	while (i < len)
+	{
+		if (!ft_strchr(nbr, arg_v[i]))
+			return (1);
+		i++;
+	}
+	if (ft_long_atoi(arg_v) > MAX_INT || ft_long_atoi(arg_v) < MIN_INT)
+		return (1);
+	return (0);
 }
