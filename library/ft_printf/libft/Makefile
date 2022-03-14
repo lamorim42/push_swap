@@ -6,7 +6,7 @@ NAME	= libft.a
 
 ### Compilation configuration
 CC		= clang
-CFLAG	= -Wall -Wextra -Werror -g3 -I include
+CFLAG	= -Wall -Wextra -Werror -g -I include
 
 CCLIB	= ar rcs
 
