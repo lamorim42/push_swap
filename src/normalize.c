@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:47:20 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/12 12:51:42 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/12 23:57:55 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	ft_normalize(t_lst **a)
 		ptr_a = *a;
 		while (ptr_a)
 		{
-			if (ptr_a->nbr == temp->nbr)
-				ptr_a->norm = temp->norm;
-			ptr_a = ptr_a->next;
+			if ((ptr_a)->nbr == temp->nbr)
+				(ptr_a)->norm = temp->norm;
+			ptr_a = (ptr_a)->next;
 		}
 		temp = temp->next;
 	}
