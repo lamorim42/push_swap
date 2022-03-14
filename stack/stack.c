@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:03:06 by lamorim           #+#    #+#             */
-/*   Updated: 2022/03/12 13:13:02 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/03/13 18:25:45 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ int	ft_gen_stack(t_stack *a, int arg_c, char **arg_v)
 	{
 		if (ft_can_put_in_lst(arg_v[a->len + 1]))
 		{
-			ft_clean_lst(&(a->lst));
+			if (!ft_is_empty(a->lst))
+				ft_clean_lst(&(a->lst));
 			ft_dprintf(2, "Error\n");
 			return (1);
 		}
 		if (ft_fill_stack(&(a->lst), ft_atoi(arg_v[a->len + 1])))
 		{
-			ft_clean_lst(&(a->lst));
+			if (!ft_is_empty(a->lst))
+				ft_clean_lst(&(a->lst));
 			ft_dprintf(2, "Error\n");
 			return (2);
 		}
@@ -54,7 +56,7 @@ static int	ft_fill_stack(t_lst **head, int i)
 
 	temp = *head;
 	if (!*head)
-		*head = ft_new_elem(i);
+		*head = ft_new_elem(i, 0);
 	else
 	{
 		while (temp->next)
@@ -65,7 +67,7 @@ static int	ft_fill_stack(t_lst **head, int i)
 		}
 		if (temp->nbr == i)
 			return (1);
-		temp->next = ft_new_elem(i);
+		temp->next = ft_new_elem(i, 0);
 	}
 	return (0);
 }
