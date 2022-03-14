@@ -6,7 +6,7 @@
 #    By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/07 21:58:08 by lamorim           #+#    #+#              #
-#    Updated: 2022/03/12 15:58:47 by lamorim          ###   ########.fr        #
+#    Updated: 2022/03/13 13:08:00 by lamorim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC		=	$(SRC_L) \
 			ft_long_atoi.c \
 			bubble_sort.c \
 			normalize.c \
+			small_sort.c \
 
 OBJ_FILES= $(SRC:.c=.o)
 OBJ		= $(addprefix ./obj/, $(OBJ_FILES))
